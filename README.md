@@ -63,30 +63,30 @@ Mount your own google drive on Colaboratory to read datasets you made.
 <br>
 Actually lots of files described below are needed for training YOLO.
 <br>
-All of files are stored in this repo, please download and put them into same folder.
+All of files are stored in this repo except datasets, please download and put them into same folder.
 <br>
-- backup         `folder where generated weights are stored`
-- obj            `folder for training dataset`
-- test           `folder for test dataset`
-- train.txt      `describe PATH for training images`
-- test.txt       `describe PATH for test images`
-- obj.data.txt
-- obj.names.txt
-- yolov4-tiny-custom.cfg
+- `backup`         folder where generated weights are stored
+- `obj`            folder for training dataset
+- `test`           folder for test dataset
+- `train.txt`      describe PATH for training images
+- `test.txt`       describe PATH for test images
+- `obj.data.txt`
+- `obj.names.txt`
+- `yolov4-tiny-custom.cfg`
 
-If you have prepared all of files, let's train `YOLOv4 tiny` with your datasets.
+If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
 ```
 !./darknet detector train obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny.conv.29 -dont_show -map
 ```
 Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup` folder.
 <br>
-That weights and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` are put into Jetson Nano 2GB to do inference at local environment.
+This weight and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` should be put into Jetson Nano 2GB to do inference at local environment.
 <br>
 ## Setting up Jetson Nano 2GB
 
-If you follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be done installed on your Jetson.
+If you follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be completed to install on your Jetson.
 <br>
-After that, if not enough, download from your jetson terminal separately.
+After that, if not enough, It is OK to download from your Jetson terminal separately.
 <br>
 
 Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack
@@ -99,7 +99,7 @@ Jetson AI Fundamentals - S3E1 - Hello AI World Setup
 https://youtu.be/QXIwdsyK7Rw
 <br>
 
-All procedures in these video have been done, open up your terminal, move to directory where you want to install `YOLOv4 (darknet)`, get YOLO from github repo.
+All procedures in these video have been done, open up your terminal, move to directory where you want to install `YOLOv4 (darknet)`, then get YOLO from Github repo.
 ```
 $ git clone https://github.com/AlexeyAB/darknet
 ```
@@ -113,17 +113,15 @@ Let's activate Real-Time Drone detection with Jetson Nano and Webcam.
 ```
 $ ./darknet detector demo obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny-custom_best.weights -thresh 0.1 >darknet.log
 ```
-Webcam would be activated without any extra setting.
+Webcam would be activated without extra setting.
 <br>
-`thresh 0.1` means 10% or more confidence should be displayed bounding box as being detected.
+`thresh 0.1` means that results with 10% or more confidence will be displayed as being detected.
 <br>
-`>darknet.log` is used for LINE notification.
+And `>darknet.log` is log of inference results which is used for LINE notification.
 <br>
 ## LINE notification with YOLD
 
-Install `swatch` on your Jetson.
-<br>
-Open your terminal and..
+Let's install `swatch` on your Jetson, open your terminal,
 ```
 $ sudo apt-get install swatch
 ```
@@ -133,12 +131,13 @@ Make `swatch.conf` by `nano` or `vim`.
 ```
 $ vim swatch.conf
 ```
+Write below script on `swatch.conf`.
 ```txt:swatch.conf
 watchfor /drone/
 	exec /LINEnotify.sh
 	threshold track_by=/drone/,type=both,count=3,seconds=10
 ```
-Make .sh file to LINE notify API call. 
+Make .sh file for API call. 
 ```sh:LINEnotify.sh
 curl -g -X POST -H "Authorization: Bearer ACCESS_TOKEN" -F "message=WRITE YOUR MESSAGE HERE" https://notify-api.line.me/api/notify
 
@@ -147,7 +146,7 @@ exit 0
 ```
 Issued Token should be described in `ACCESS_TOKEN`.
 <br>
-Please refer to [How to issue Token](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
+If You want to know how to issue Token, please refer to [this article](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
 <br>
 
 Run swatchdog during Real-Time Drone detection,
@@ -166,7 +165,8 @@ Even if you flutter a book next to a flying toy drone, it will not be falsely de
 <br>
 Even though it is `tiny` with about 100 sheets, it is quite excellent.
 <br>
-![スクリーンショット 2021-03-10 231445](https://user-images.githubusercontent.com/79794586/110642540-73d1cf80-81f6-11eb-8a3d-e04d726fbe76.png)
+
+![スクリーンショット 2021-03-10 231445](https://user-images.githubusercontent.com/79794586/110643348-59e4bc80-81f7-11eb-9779-0262d6cbd023.png)
 <br>
 
 Now it's safe even if the drone breaks into the room!
