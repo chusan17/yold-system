@@ -159,9 +159,15 @@ You can get notification from Jetson via LINE notify!
 ## Conclusion
 
 We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB.
+<br>
 With this configuration, about `5 FPS` comes out.
+<br>
 Even if you flutter a book next to a flying toy drone, it will not be falsely detected.
+<br>
 Even though it is `tiny` with about 100 sheets, it is quite excellent.
+<br>
+![スクリーンショット 2021-03-10 231445](https://user-images.githubusercontent.com/79794586/110642540-73d1cf80-81f6-11eb-8a3d-e04d726fbe76.png)
+<br>
 
 Now it's safe even if the drone breaks into the room!
 <br>
