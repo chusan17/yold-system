@@ -17,7 +17,7 @@ In this repo, Colaboratory file is restored.<br>
 this file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.<br>
 YOLO needs unique dataset format, you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).<br>
 
-**Inference should be performed inside Jetson which means no necessary Internet connection during Real-Time detection.**<br>
+**Inference is performed in only Jetson which means no necessary Internet connection during Real-Time detection.**<br>
 But Notification to your LINE account introduced below needs WiFi for API call.<br>
 
 ### Hardwares
@@ -28,7 +28,7 @@ But Notification to your LINE account introduced below needs WiFi for API call.<
 
 ## Re-train YOLOv4 tiny with your original dataset
 
-Open Colaboratory and change to GPU mode.
+Open your Colaboratory and change to GPU mode.
 And get `YOLOv4 (darknet)`.
 ```
 !git clone https://github.com/AlexeyAB/darknet
@@ -46,71 +46,28 @@ Do `make` it.
 !make
 ```
 It takes lots of time.<br>
-And then, download pre-trained weights.
+Once finished, download pre-trained weights.
 ```
 !wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29
 ```
-そして、自分の drive をマウントして、データセットを読み込めるようにしましょう。
-実は、YOLO の学習にはデータセット以外にも`obj.data.txt`や`yolov4-tiny-custom.cfg`などの設定ファイルが必要です。
-用意しましょう。
-
-まず`obj.data.txt`を作って以下を書き込みます。
-
-```txt:obj.data.txt
-classes = 1
-train = /train.txt
-valid = /test.txt
-names = /obj.names.txt
-backup = /backup
-```
-今回はドローンを検知するだけなので`classes`は`1`にします。
-`obj.names.txt`にはラベル名を記載します。今回はテキストファイルに`drone`とだけ記載すればOKです。
-`backup`フォルダには学習済みの重みが記録されます。
-
-`yolov4-tiny-custom.cfg`はニューラルネットのアーキテクチャーを設定するファイルです。
-[こちら](https://github.com/alexeyab/darknet#how-to-train-to-detect-your-custom-objects)を参考に内容を書き換えましょう。
-
-`train.txt`と`test.txt`は各データセットの画像へのPATHを記載したテキストファイルです。
-仮に、親フォルダ名が`folder`、trainデータセットのフォルダ名が`obj`の場合、以下のコードで生成できます。
-
-```python
-
-import os
-
-image_files = []
-os.chdir(os.path.join("folder", "obj"))
-for filename in os.listdir(os.getcwd()):
-    if filename.endswith(".jpg"):
-        image_files.append("folder/obj/" + filename)
-os.chdir("..")
-with open("train.txt", "w") as outfile:
-    for image in image_files:
-        outfile.write(image)
-        outfile.write("\n")
-    outfile.close()
-os.chdir("..")
-```
-Colaboratoryで実行すると、`train.txt`が生成されたはずです。
-`test.txt`も同様に作ります。
-最終的に以下のファイル/フォルダが同じ場所にあればOKです。
-
-- backup（学習済みweightが保存されるフォルダ）
-- obj（トレーニングデータセットが格納されているフォルダ）
-- test（テストデータセットが格納されているフォルダ）
-- train.txt
-- test.txt
+And mount your own google drive on Colaboratory to read datasets you made.<br>
+Actually lots of files described below are needed for training YOLO.<br>
+All of files are stored in this repo, please download and put them into same folder.<br>
+- backup	(folder where generated weights are stored)
+- obj		(folder for training dataset)
+- test		(folder for test dataset)
+- train.txt	(PATH for training images is described)
+- test.txt	(PATH for test images is described)
 - obj.data.txt
 - obj.names.txt
 - yolov4-tiny-custom.cfg
 
-準備OKですので、オリジナルデータセットで darknet を訓練しましょう！
-
+If you have prepared all of files, let's train `YOLOv4 tiny` with your datasets.
 ```
 !./darknet detector train obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny.conv.29 -dont_show -map
 ```
-約100枚のドローン画像を用いた学習で約1時間半かかりました。
-学習が終わると、`backup`フォルダに`yolov4-tiny-custom_best.weights`が生成されます。
-こいつと`obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg`を Jetson Nano に移植して推論していきます！
+Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup` folder.
+That weights and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` are put into Jetson Nano 2GB to do inference at local environment.
 <br>
 ## Jetson Nano の環境構築
 
