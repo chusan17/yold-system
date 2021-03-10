@@ -5,26 +5,27 @@ You Only Look Drone with Jetson Nano
 
 ## Introduction
 
-Welcome to yold-system repo.
-YOLD is Drone detector based on YOLOv4 tiny (You Only Look Once).
-100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only Drone.
+Welcome to yold-system repo.<br>
+YOLD is Drone detector based on YOLOv4 tiny (You Only Look Once).<br>
+100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only Drone.<br>
 
-And retrained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Real-Time Drone detection with webcam.
+And retrained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Real-Time Drone detection with webcam.<br>
 
 ## Configuration
 
-In this repo, Colaboratory file is restored.
-this file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.
-YOLO needs unique dataset format, you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).
+In this repo, Colaboratory file is restored.<br>
+this file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.<br>
+YOLO needs unique dataset format, you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).<br>
 
-**Inference should be performed inside Jetson which means no necessary Internet connection during Real-Time detection.**
-But Notification to your LINE account introduced below needs WiFi for API call.
+**Inference should be performed inside Jetson which means no necessary Internet connection during Real-Time detection.**<br>
+But Notification to your LINE account introduced below needs WiFi for API call.<br>
 
 ### Hardwares
 - Jetson Nano 2GB
 - USB-C power supply (5V 3A)
 - Webcam (Logicool C525n)
 - WiFi
+<br>
 
 ## Re-train YOLOv4 tiny with your original dataset
 
@@ -45,9 +46,8 @@ do `make` it.
 ```
 !make
 ```
-これには少し時間がかかります。
-できたら次は、学習済みの weight を落とします。
-
+It takes lots of time.<br>
+And then, download pre-trained weights.
 ```
 !wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29
 ```
@@ -206,7 +206,7 @@ Jetson Nano 2GB でオリジナルデータセットを学習した YOLOv4 tiny 
 
 これで部屋にドローンが侵入しても安心ですね！
 
-## 参考文献
+## Reference
 - [JETSON AI COURSES AND CERTIFICATION](https://developer.nvidia.com/ja-jp/embedded/learn/jetson-ai-certification-programs)
 - [LINE Notify](https://notify-bot.line.me/ja/)
 - [GitHub - dusty-nv/jetson-inference: Hello AI World guide to deploying deep-learning inference networks and deep vision primitives with TensorRT and NVIDIA Jetson.](https://github.com/dusty-nv/jetson-inference)
