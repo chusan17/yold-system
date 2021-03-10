@@ -13,12 +13,12 @@ And retrained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Rea
 
 ## Configuration
 
-In this repo, Colaboratory file is restored.<br>
+In this repo, Colaboratory file is stored.<br>
 this file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.<br>
 YOLO needs unique dataset format, you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).<br>
 
 **Inference is performed in only Jetson which means no necessary Internet connection during Real-Time detection.**<br>
-But Notification to your LINE account introduced below needs WiFi for API call.<br>
+※ Notification to your LINE account introduced below needs WiFi for API call.<br>
 
 ### Hardwares
 - Jetson Nano 2GB
@@ -28,8 +28,7 @@ But Notification to your LINE account introduced below needs WiFi for API call.<
 
 ## Re-train YOLOv4 tiny with your original dataset
 
-Open your Colaboratory and change to GPU mode.
-And get `YOLOv4 (darknet)`.
+Open your Colaboratory and change to GPU mode, and let's get `YOLOv4 (darknet)`.
 ```
 !git clone https://github.com/AlexeyAB/darknet
 ```
@@ -41,23 +40,23 @@ Rewrite makefile to use GPU and OpenCV.
 !sed -i 's/CUDNN=0/CUDNN=1/' Makefile
 !sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
 ```
-Do `make` it.
+Do build it.
 ```
 !make
 ```
 It takes lots of time.<br>
-Once finished, download pre-trained weights.
+Once finished, download pre-trained weights from YOLOv4 repo.
 ```
 !wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29
 ```
 And mount your own google drive on Colaboratory to read datasets you made.<br>
 Actually lots of files described below are needed for training YOLO.<br>
 All of files are stored in this repo, please download and put them into same folder.<br>
-- backup	(folder where generated weights are stored)
-- obj		(folder for training dataset)
-- test		(folder for test dataset)
-- train.txt	(PATH for training images is described)
-- test.txt	(PATH for test images is described)
+- backup         :folder where generated weights are stored
+- obj            :folder for training dataset
+- test           :folder for test dataset
+- train.txt      :describe PATH for training images
+- test.txt       :describe PATH for test images
 - obj.data.txt
 - obj.names.txt
 - yolov4-tiny-custom.cfg
@@ -66,37 +65,34 @@ If you have prepared all of files, let's train `YOLOv4 tiny` with your datasets.
 ```
 !./darknet detector train obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny.conv.29 -dont_show -map
 ```
-Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup` folder.
+Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup` folder.<br>
 That weights and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` are put into Jetson Nano 2GB to do inference at local environment.
 <br>
-## Jetson Nano の環境構築
+## Setting up Jetson Nano 2GB
 
-基本的には Colaboratory と同じ環境を Jetson Nano にも作ってあげます。
-初期設定などは以下の動画を参考に進めていけばOKです。
-これで必要なモノがだいたいインストールされるので、この後は足りないものをちょくちょくダウンロードしていく感じです。
-
+If you follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be done installed on your Jetson.
+<br>
+After that, if not enough, download from your jetson terminal separately.
+<br>
 Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack
+<br>
 https://youtu.be/uvU8AXY1170
-
+<br>
 Jetson AI Fundamentals - S3E1 - Hello AI World Setup
+<br>
 https://youtu.be/QXIwdsyK7Rw
-
-Jetson のターミナルを起動し、YOLOv4 (darknet) を入れたいディレクトリに移動して`git clone`です。
-
+<br>
+All procedures in these video have been done, open up your terminal, move to directory where you want to install `YOLOv4 (darknet)`, get YOLO from github repo.
 ```
 $ git clone https://github.com/AlexeyAB/darknet
 ```
-次に Colaboratory 同様に makeflie をいじるのですが、少し方法が違います。
-[こちらの記事](https://qiita.com/tayutayufk/items/3d715184e0a7cefa5e9a)を参考に変更しましょう。
-
-できたら`make`コマンドでビルドします。
-
+Change makefile according to [this article](https://qiita.com/tayutayufk/items/3d715184e0a7cefa5e9a), and then do `make` it.
 ```
 $ make
 ```
-これで準備できました。
+Ready for YOLD!
+Let's 
 Jetson Nano + WEBカメラで YOLOv4 のリアルタイム推論を発動させましょう。
-
 ```
 $ ./darknet detector demo obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny-custom_best.weights -thresh 0.1 >darknet.log
 ```
