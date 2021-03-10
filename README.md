@@ -24,8 +24,8 @@ But Notification to your LINE account introduced below needs WiFi for API call.<
 - Jetson Nano 2GB
 - USB-C power supply (5V 3A)
 - Webcam (Logicool C525n)
-- WiFi
-<br>
+- WiFi<br>
+
 ## Re-train YOLOv4 tiny with your original dataset
 
 Open Colaboratory and change to GPU mode.
