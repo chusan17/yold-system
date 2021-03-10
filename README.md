@@ -26,15 +26,14 @@ But Notification to your LINE account introduced below needs WiFi for API call.<
 - Webcam (Logicool C525n)
 - WiFi
 <br>
-
 ## Re-train YOLOv4 tiny with your original dataset
 
-open Colaboratory and change to GPU mode.
+Open Colaboratory and change to GPU mode.
 And get `YOLOv4 (darknet)`.
 ```
 !git clone https://github.com/AlexeyAB/darknet
 ```
-rewrite makefile to use GPU and OpenCV.
+Rewrite makefile to use GPU and OpenCV.
 ```
 %cd darknet
 !sed -i 's/OPENCV=0/OPENCV=1/' Makefile
@@ -42,7 +41,7 @@ rewrite makefile to use GPU and OpenCV.
 !sed -i 's/CUDNN=0/CUDNN=1/' Makefile
 !sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
 ```
-do `make` it.
+Do `make` it.
 ```
 !make
 ```
@@ -112,7 +111,7 @@ Colaboratoryで実行すると、`train.txt`が生成されたはずです。
 約100枚のドローン画像を用いた学習で約1時間半かかりました。
 学習が終わると、`backup`フォルダに`yolov4-tiny-custom_best.weights`が生成されます。
 こいつと`obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg`を Jetson Nano に移植して推論していきます！
-
+<br>
 ## Jetson Nano の環境構築
 
 基本的には Colaboratory と同じ環境を Jetson Nano にも作ってあげます。
@@ -148,7 +147,7 @@ $ ./darknet detector demo obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny-custom
 `- thresh`で検知の閾値を設定します。推論結果として一種の確度(%)みたいなものを出力するのですが、`thresh 0.1`なら`10%`以上の確度を持ってドローンと分類したものだけを表示してくれます。
 
 `>darknet.log`は次に説明するアラート通知に使うためにログを吐き出しています。
-
+<br>
 ## LINE通知の仕組みを作る
 
 今回は`swatch`で`darknet.log`を監視して、「drone」というワードが出てきたら .shファイルを実行させ`LINE Notify`の API を叩きます。
@@ -193,8 +192,7 @@ exit 0
 $ swatchdog --config-file=/swatch.conf --tail-file=/darknet.log
 ```
 こんな感じでLINEのメッセージが届きます。
-![LINEnotify_Trim.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/386486/4d5b14b1-7468-34b2-95fd-480d990de7c9.png)
-
+<br>
 ## おわりに
 
 Jetson Nano 2GB でオリジナルデータセットを学習した YOLOv4 tiny を動かしてみました。
@@ -202,10 +200,8 @@ Jetson Nano 2GB でオリジナルデータセットを学習した YOLOv4 tiny 
 飛行しているトイドローンの横で本をひらひらさせても誤検知しません。
 100枚程度で tiny なのに、なかなか優秀です。
 
-![example02.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/386486/fdaefa86-edca-848f-08cb-9a1d6a603124.png)
-
 これで部屋にドローンが侵入しても安心ですね！
-
+<br>
 ## Reference
 - [JETSON AI COURSES AND CERTIFICATION](https://developer.nvidia.com/ja-jp/embedded/learn/jetson-ai-certification-programs)
 - [LINE Notify](https://notify-bot.line.me/ja/)
