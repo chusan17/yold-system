@@ -3,45 +3,37 @@ You Only Look Drone with Jetson Nano
 
 ![ian-usher-JPAfSd_acI8-unsplash](https://user-images.githubusercontent.com/79794586/109420853-e1704580-7a17-11eb-8e66-47ff49b930a5.jpg)
 
+## Introduction
+
 Welcome to yold-system repo.
-YOLD is Drone detector based on YOLOv4 (You Only Look Once).
-100 drone pictures are used for re-traning YOLOv4 to create a new object detection network which detects only Drone.
+YOLD is Drone detector based on YOLOv4 tiny (You Only Look Once).
+100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only Drone.
 
-## はじめに
+And retrained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Real-Time Drone detection with webcam.
 
-2015年4月22日に東京都千代田区永田町にある総理大臣官邸屋上に、放射性物質を搭載したドローンが落下した。俗に言う「首相官邸無人機落下事件」だ。
-あれから6年、日本は未だドローンの脅威にさらされ続けている…
+## Configuration
 
-というわけで、
-最近発売された`Jetson Nano 2GB`を使ってドローン検知システムを作ってみました。
+In this repo, Colaboratory file is restored.
+this file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.
+YOLO needs unique dataset format, you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).
 
-## 構成
+**Inference should be performed inside Jetson which means no necessary Internet connection during Real-Time detection.**
+But Notification to your LINE account introduced below needs WiFi for API call.
 
-今回は`YOLOv4 tiny`を Colaboratory で転移学習させ、生成された重みを Jetson に移植しました。
-学習に用いたドローンの画像は約100枚。YOLO独特のフォーマットがあるので、[こちら](https://github.com/tzutalin/labelImg)のラベリングツールでYOLO用のデータセットを作成し、食べさせました。
+### Hardwares
+- Jetson Nano 2GB
+- USB-C power supply (5V 3A)
+- Webcam (Logicool C525n)
+- WiFi
 
-**推論は Jetson で行い、その際インターネット接続は必要ありません。**
-ただ、検知 → アラート通知の仕組みも作ったので、そこだけWiFiが必要です。
+## Re-train YOLOv4 tiny with your original dataset
 
-以下、全体の構成です。
-WEBカメラは Logicool C525n を使用しました。
-![スクリーンショット 2021-03-08 215633.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/386486/707ed436-c5fd-e79b-8f9c-5657d4df4edf.png)
-
-YOLOの推論結果のログを監視して、ドローンを検知したら`LINE Notify`の API を叩く構成にしました。
-ちなみに、こんな感じで検知します。
-![example01.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/386486/9459283b-552e-1132-2a57-b5ba8a773b25.png)
-
-## モデル作成
-
-Colaboratory を開いたら、GPUモードに変更しましょう。
-そして、YOLOv4 (darknet) を `git clone` します。
-手順は以下です。
-
+open Colaboratory and change to GPU mode.
+And get `YOLOv4 (darknet)`.
 ```
 !git clone https://github.com/AlexeyAB/darknet
 ```
-GPU と OpenCV を使えるように makefile を書き換えます。
-
+rewrite makefile to use GPU and OpenCV.
 ```
 %cd darknet
 !sed -i 's/OPENCV=0/OPENCV=1/' Makefile
@@ -49,8 +41,7 @@ GPU と OpenCV を使えるように makefile を書き換えます。
 !sed -i 's/CUDNN=0/CUDNN=1/' Makefile
 !sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
 ```
-そして`make`します。
-
+do `make` it.
 ```
 !make
 ```
