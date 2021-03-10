@@ -86,7 +86,7 @@ This weight and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` should b
 
 If you follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be completed to install on your Jetson.
 <br>
-After that, if not enough, It is OK to download from your Jetson terminal separately.
+After that, if not enough, download from your Jetson terminal separately.
 <br>
 
 Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack
@@ -109,7 +109,7 @@ $ make
 ```
 Ready for YOLD!
 <br>
-Let's activate Real-Time Drone detection with Jetson Nano and Webcam.
+Let's activate Real-Time Drone Detection with Jetson Nano and Webcam.
 ```
 $ ./darknet detector demo obj.data.txt yolov4-tiny-custom.cfg yolov4-tiny-custom_best.weights -thresh 0.1 >darknet.log
 ```
@@ -146,10 +146,10 @@ exit 0
 ```
 Issued Token should be described in `ACCESS_TOKEN`.
 <br>
-If You want to know how to issue Token, please refer to [this article](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
+If You want to know how to issue token, please refer to [this article](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
 <br>
 
-Run swatchdog during Real-Time Drone detection,
+Run swatchdog during Real-Time Drone Detection,
 ```
 $ swatchdog --config-file=/swatch.conf --tail-file=/darknet.log
 ```
@@ -166,7 +166,7 @@ Even if you flutter a book next to a flying toy drone, it will not be falsely de
 Even though it is `tiny` with about 100 sheets, it is quite excellent.
 <br>
 
-![スクリーンショット 2021-03-10 231445](https://user-images.githubusercontent.com/79794586/110643348-59e4bc80-81f7-11eb-9779-0262d6cbd023.png)
+![スクリーンショット 2021-03-10 233930](https://user-images.githubusercontent.com/79794586/110646185-02941b80-81fa-11eb-9633-ba24db5e7744.png)
 <br>
 
 Now it's safe even if the drone breaks into the room!
