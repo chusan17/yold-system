@@ -7,7 +7,7 @@ You Only Look Drone with Jetson Nano
 
 Welcome to yold-system repo.
 <br>
-YOLD is Drone detector based on`YOLOv4 tiny`.
+YOLD is a drone detector based on `YOLOv4 tiny`.
 <br>
 100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only a drone.
 <br>
