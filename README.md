@@ -19,7 +19,7 @@ And re-trained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Re
 
 In this repo, Colaboratory file is stored.
 <br>
-this file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.
+This file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.
 <br>
 YOLO needs unique dataset format, you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).
 <br>
