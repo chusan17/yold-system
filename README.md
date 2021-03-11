@@ -90,8 +90,6 @@ After that, if not enough, download things you need from your Jetson terminal se
 <br>
 
 - [Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack](https://youtu.be/uvU8AXY1170)
-<br>
-
 - [Jetson AI Fundamentals - S3E1 - Hello AI World Setup](https://youtu.be/QXIwdsyK7Rw)
 <br>
 
