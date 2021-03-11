@@ -89,14 +89,9 @@ If you follow below videos to set up Jetson Nano, almost all of things are neede
 After that, if not enough, download things you need from your Jetson terminal separately.
 <br>
 
-Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack
+- [Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack](https://youtu.be/uvU8AXY1170)
 <br>
-https://youtu.be/uvU8AXY1170
-<br>
-
-Jetson AI Fundamentals - S3E1 - Hello AI World Setup
-<br>
-https://youtu.be/QXIwdsyK7Rw
+- [Jetson AI Fundamentals - S3E1 - Hello AI World Setup](https://youtu.be/QXIwdsyK7Rw)
 <br>
 
 All procedures in these video have been done, open up your terminal, move to directory where you want to install `YOLOv4 (darknet)`, then get YOLO from Github repo.
@@ -157,7 +152,7 @@ You can get notification from Jetson via LINE notify!
 <br>
 ## Conclusion
 
-We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB.
+We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB and send a message to your phone when a dorne is detected.
 <br>
 With this configuration, about `5 FPS` comes out.
 <br>
