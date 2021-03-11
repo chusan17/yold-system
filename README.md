@@ -131,8 +131,11 @@ watchfor /drone/
 	exec /LINEnotify.sh
 	threshold track_by=/drone/,type=both,count=3,seconds=10
 ```
-Make .sh file for API call. 
-```sh:LINEnotify.sh
+Make `LINEnotify.sh` file for API call. 
+```
+$ vim LINEnotify.sh
+```
+```LINEnotify.sh
 curl -g -X POST -H "Authorization: Bearer ACCESS_TOKEN" -F "message=WRITE YOUR MESSAGE HERE" https://notify-api.line.me/api/notify
 
 echo
