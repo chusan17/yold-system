@@ -17,7 +17,7 @@ And re-trained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Re
 
 ## Configuration
 
-In this repo, Colaboratory file (train_YOLOv4_tiny.ipynb) is stored.
+In this repo, [Colaboratory file](https://github.com/chusan17/yold-system/blob/main/train_YOLOv4_tiny.ipynb) is stored.
 <br>
 This file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.
 <br>
