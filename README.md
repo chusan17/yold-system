@@ -155,7 +155,7 @@ We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB an
 <br>
 With this configuration, about `5 FPS` comes out.
 <br>
-Even if you flutter a book next to a flying toy drone, it will not be falsely detected. Even though it is `tiny` with about onle 100 pics, it is quite excellent.
+Even if you flutter a book next to a flying toy drone, it will not be falsely detected. Even though it is `tiny` with about only 100 pics, it is quite excellent.
 <br>
 
 ![スクリーンショット 2021-03-10 233930](https://user-images.githubusercontent.com/79794586/110646185-02941b80-81fa-11eb-9633-ba24db5e7744.png)
