@@ -71,7 +71,7 @@ All of files are stored in this repo except datasets and train/test.txt, please 
 - `train.txt`      describe PATH for training images
 - `test.txt`       describe PATH for test images
 - `obj.data.txt`
-- `obj.names.txt`
+- `obj.names`
 - `yolov4-tiny-custom.cfg`
 
 If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
@@ -80,7 +80,7 @@ If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
 ```
 Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup` folder.
 <br>
-This weight and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` should be put into Jetson Nano 2GB to do inference at local environment.
+This weight and `obj.data.txt` `obj.names` `yolov4-tiny-custom.cfg` should be put into Jetson Nano 2GB to do inference at local environment.
 <br>
 ## Setting up Jetson Nano 2GB
 
