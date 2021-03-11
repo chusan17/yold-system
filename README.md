@@ -7,12 +7,12 @@ You Only Look Drone with Jetson Nano
 
 Welcome to yold-system repo.
 <br>
-YOLD is Drone detector based on YOLOv4 tiny (You Only Look Once).
+YOLD is Drone detector based on`YOLOv4 tiny`.
 <br>
-100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only Drone.
+100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only a drone.
 <br>
 
-And retrained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Real-Time Drone detection with webcam.
+And re-trained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Real-Time Drone Detection with webcam.
 <br>
 
 ## Configuration
@@ -37,11 +37,11 @@ YOLO needs unique dataset format, you need to create dataset for YOLO with [this
 
 ## Re-train YOLOv4 tiny with your original dataset
 
-Open your Colaboratory and change to GPU mode, and let's get `YOLOv4 (darknet)`.
+Open your Colaboratory and enable GPU mode, and let's get `YOLOv4 (darknet)`.
 ```
 !git clone https://github.com/AlexeyAB/darknet
 ```
-Rewrite makefile to use GPU and OpenCV.
+Rewrite `makefile` to use GPU and OpenCV.
 ```
 %cd darknet
 !sed -i 's/OPENCV=0/OPENCV=1/' Makefile
@@ -63,7 +63,7 @@ Mount your own google drive on Colaboratory to read datasets you made.
 <br>
 Actually lots of files described below are needed for training YOLO.
 <br>
-All of files are stored in this repo except datasets, please download and put them into same folder.
+All of files are stored in this repo except datasets and train/test.txt, please download them and put them into same folder.
 <br>
 - `backup`         folder where generated weights are stored
 - `obj`            folder for training dataset
@@ -86,7 +86,7 @@ This weight and `obj.data.txt` `obj.names.txt` `yolov4-tiny-custom.cfg` should b
 
 If you follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be completed to install on your Jetson.
 <br>
-After that, if not enough, download from your Jetson terminal separately.
+After that, if not enough, download things you need from your Jetson terminal separately.
 <br>
 
 Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack
@@ -107,7 +107,7 @@ Change `makefile` according to [this article](https://qiita.com/tayutayufk/items
 ```
 $ make
 ```
-Ready for YOLD!
+That's it. Ready for YOLD!
 <br>
 Let's activate Real-Time Drone Detection with Jetson Nano and Webcam.
 ```
@@ -144,9 +144,9 @@ curl -g -X POST -H "Authorization: Bearer ACCESS_TOKEN" -F "message=WRITE YOUR M
 echo
 exit 0
 ```
-Issued Token should be described in `ACCESS_TOKEN`.
+Issued token should be described in `ACCESS_TOKEN`.
 <br>
-If You want to know how to issue token, please refer to [this article](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
+If you want to know how to issue token, please refer to [this article](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
 <br>
 
 Run swatchdog during Real-Time Drone Detection,
@@ -161,15 +161,13 @@ We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB.
 <br>
 With this configuration, about `5 FPS` comes out.
 <br>
-Even if you flutter a book next to a flying toy drone, it will not be falsely detected.
-<br>
-Even though it is `tiny` with about 100 sheets, it is quite excellent.
+Even if you flutter a book next to a flying toy drone, it will not be falsely detected. Even though it is `tiny` with about onle 100 pics, it is quite excellent.
 <br>
 
 ![スクリーンショット 2021-03-10 233930](https://user-images.githubusercontent.com/79794586/110646185-02941b80-81fa-11eb-9633-ba24db5e7744.png)
 <br>
 
-Now it's safe even if the drone breaks into the room!
+Now it's safe even if a drone breaks into the room!
 <br>
 Thanks!
 <br>
