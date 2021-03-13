@@ -137,7 +137,7 @@ Make `LINEnotify.sh` file for API call.
 $ vim LINEnotify.sh
 ```
 ```LINEnotify.sh
-curl -g -X POST -H "Authorization: Bearer ACCESS_TOKEN" -F "message=`WRITE YOUR MESSAGE HERE`" https://notify-api.line.me/api/notify
+curl -g -X POST -H "Authorization: Bearer ACCESS_TOKEN" -F "message=WRITE YOUR MESSAGE HERE" https://notify-api.line.me/api/notify
 
 echo
 exit 0
