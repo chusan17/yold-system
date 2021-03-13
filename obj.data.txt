@@ -1,5 +1,5 @@
 classes = 1
-train = /train.txt
-valid = /test.txt
-names = /obj.names
-backup = /backup
+train = /path/to/train.txt
+valid = /path/to/test.txt
+names = /path/to/obj.names
+backup = /path/to/backup
