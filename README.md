@@ -65,6 +65,7 @@ Actually lots of files described below are needed for training YOLO.
 <br>
 >All of files are stored in this repo except your own datasets and train/test.txt, please download them and put them into same directory.
 <br>
+
 - `backup`         empty directory where generated weights are stored
 - `obj`            directory for training dataset
 - `test`           directory for test dataset
