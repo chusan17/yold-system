@@ -12,7 +12,7 @@ YOLD is a drone detector based on `YOLOv4 tiny`.
 100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only a drone.
 <br>
 
-Furthermore, re-trained `YOLOv4 tiny` would be installed on Jetson Nano 2GB to perform Real-Time Drone Detection with webcam.
+Furthermore, re-trained `YOLOv4 tiny` is put on Jetson Nano 2GB to perform Real-Time Drone Detection with webcam.
 <br>
 
 ## Configuration
@@ -24,7 +24,7 @@ This file shows how to re-train `YOLOv4 tiny` using your original dataset in Col
 YOLO needs unique dataset format, so you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).
 <br>
 
-**Inference is performed in only Jetson which means no necessary Internet connection during Real-Time detection.**
+**Inference is performed only in Jetson which means no necessary Internet connection during Real-Time detection.**
 <br>
 ※ Notification to your LINE account introduced below needs WiFi for API call.
 <br>
@@ -53,17 +53,17 @@ Do build it.
 ```
 !make
 ```
-It takes lots of time.
+It takes lots of time...
 <br>
 Once finished, Download pre-trained weights from YOLOv4 repo.
 ```
 !wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29
 ```
-Mount your own google drive on Colaboratory to read datasets you made.
+Mount your own Google Drive on Colaboratory to read datasets you made.
 <br>
 Actually lots of files described below are needed for training YOLO.
 <br>
-All of files are stored in this repo except your own datasets and train/test.txt, please download them and put them into same directory.
+>All of files are stored in this repo except your own datasets and train/test.txt, please download them and put them into same directory.
 <br>
 - `backup`         empty directory where generated weights are stored
 - `obj`            directory for training dataset
@@ -85,9 +85,9 @@ This weight and `obj.data.txt` `obj.names` `yolov4-tiny-custom.cfg` should be pu
 <br>
 ## Setting up Jetson Nano 2GB
 
-If you follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be completed to install on your Jetson.
+You follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be installed on your Jetson.
 <br>
-After that, if not enough, Download things you need from your Jetson terminal separately.
+If not enough, Download things you need from your Jetson terminal separately.
 <br>
 
 - [Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack](https://youtu.be/uvU8AXY1170)
