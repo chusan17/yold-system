@@ -111,6 +111,7 @@ $ ./darknet detector demo /path/to/obj.data.txt /path/to/yolov4-tiny-custom.cfg 
 ```
 Webcam would be activated without extra setting.
 <br>
+
 `thresh 0.1` means that results with 10% or more confidence will be displayed as being detected.
 <br>
 And `>darknet.log` is log of inference results which is used for LINE notification.
