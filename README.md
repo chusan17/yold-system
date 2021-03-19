@@ -19,9 +19,9 @@ Furthermore, re-trained `YOLOv4 tiny` will be put on Jetson Nano 2GB to perform 
 
 In this repo, [Colaboratory file](https://github.com/chusan17/yold-system/blob/main/train_YOLOv4_tiny.ipynb) is stored.
 <br>
-This file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory.
+This file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory and how to make `train/test.txt`.
 <br>
-YOLO needs unique dataset format, so you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg).
+YOLO needs unique dataset format, so you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg) before training.
 <br>
 
 **Inference is performed only in Jetson which means no necessary Internet connection during Real-Time detection.**
