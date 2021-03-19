@@ -66,7 +66,7 @@ Actually lots of files described below are needed for training YOLO.
 >All of files are stored in this repo except your own datasets and train/test.txt, please download them and put them into same directory.
 <br>
 
-- `backup`         empty directory where generated weights are stored
+- `backup`         empty directory where generated weights will be stored
 - `obj`            directory for training dataset
 - `test`           directory for test dataset
 - `train.txt`      describe PATH for training images
@@ -76,6 +76,7 @@ Actually lots of files described below are needed for training YOLO.
 - `yolov4-tiny-custom.cfg`
 - `yolov4-tiny.conv.29`
 
+<br>
 If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
 ```
 !./darknet detector train /path/to/obj.data.txt /path/to/yolov4-tiny-custom.cfg /path/to/yolov4-tiny.conv.29 -dont_show -map
