@@ -5,14 +5,14 @@ You Only Look Drone with Jetson Nano
 
 ## Introduction
 
-Welcome to You Only Look Drone (YOLD) repo!
+Welcome to YOLD (You Only Look Drone) repo!
 <br>
 YOLD is a drone detector based on `YOLOv4 tiny`.
 <br>
 100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only a drone.
 <br>
 
-Furthermore, re-trained `YOLOv4 tiny` is put on Jetson Nano 2GB to perform Real-Time Drone Detection with webcam.
+Furthermore, re-trained `YOLOv4 tiny` will be put on Jetson Nano 2GB to perform Real-Time Drone Detection with Webcam.
 <br>
 
 ## Configuration
@@ -26,7 +26,7 @@ YOLO needs unique dataset format, so you need to create dataset for YOLO with [t
 
 **Inference is performed only in Jetson which means no necessary Internet connection during Real-Time detection.**
 <br>
-※ Notification to your LINE account introduced below needs WiFi for API call.
+※ Notification to your LINE (SNS) account introduced below needs WiFi for API call.
 <br>
 
 ### Hardwares
@@ -80,7 +80,7 @@ If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
 ```
 !./darknet detector train /path/to/obj.data.txt /path/to/yolov4-tiny-custom.cfg /path/to/yolov4-tiny.conv.29 -dont_show -map
 ```
-Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup`.
+Once training finished, `yolov4-tiny-custom_best.weights` would be generated in `backup` directory.
 <br>
 This weight and `obj.data.txt` `obj.names` `yolov4-tiny-custom.cfg` should be put into Jetson Nano 2GB to do inference at local environment.
 <br>
@@ -88,14 +88,14 @@ This weight and `obj.data.txt` `obj.names` `yolov4-tiny-custom.cfg` should be pu
 
 You follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be installed on your Jetson.
 <br>
-If not enough, Download things you need from your Jetson terminal separately.
+If not enough, Download stuffs from your Jetson terminal on demand.
 <br>
 
 - [Jetson AI Fundamentals - S1E1 - First Time Setup with JetPack](https://youtu.be/uvU8AXY1170)
 - [Jetson AI Fundamentals - S3E1 - Hello AI World Setup](https://youtu.be/QXIwdsyK7Rw)
 <br>
 
-All procedures in these video have been done, open up your terminal, move to directory where you want to install `YOLOv4 (darknet)`, then get YOLO from Github repo.
+All procedures in these video have been done, Open up your terminal, Move to directory where you want to install `YOLOv4 (darknet)`, then Get YOLO from Github repo.
 ```
 $ git clone https://github.com/AlexeyAB/darknet
 ```
@@ -152,7 +152,7 @@ Run swatchdog during Real-Time Drone Detection,
 ```
 $ swatchdog --config-file=/path/to/swatch.conf --tail-file=/path/to/darknet.log
 ```
-You can get notification from Jetson via LINE notify!
+You can get notification from Jetson via LINE notify API!
 <br>
 ## Conclusion
 
