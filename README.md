@@ -75,8 +75,8 @@ Actually lots of files described below are needed for training YOLO.
 - `obj.names`
 - `yolov4-tiny-custom.cfg`
 - `yolov4-tiny.conv.29`
-
 <br>
+
 If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
 ```
 !./darknet detector train /path/to/obj.data.txt /path/to/yolov4-tiny-custom.cfg /path/to/yolov4-tiny.conv.29 -dont_show -map
