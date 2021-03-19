@@ -22,6 +22,7 @@ In this repo, [Colaboratory file](https://github.com/chusan17/yold-system/blob/m
 <br>
 This file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory and how to make `train/test.txt`.
 <br>
+
 YOLO needs unique dataset format, so you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg) before training.
 <br>
 
@@ -38,7 +39,7 @@ YOLO needs unique dataset format, so you need to create dataset for YOLO with [t
 
 ## Re-train YOLOv4 tiny with your original dataset
 
-Open your Colaboratory and enable GPU mode, and let's get `YOLOv4 (darknet)`.
+Open your Colaboratory and Enable GPU mode, and let's get `YOLOv4 (darknet)`.
 ```
 !git clone https://github.com/AlexeyAB/darknet
 ```
@@ -60,7 +61,7 @@ Once finished, Download pre-trained weights from YOLOv4 repo.
 ```
 !wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29
 ```
-Mount your own Google Drive on Colaboratory to read datasets you made.
+Mount your own Google Drive on Colaboratory in order to read datasets you made.
 <br>
 Lots of files described below are needed for training YOLO.
 <br>
@@ -88,7 +89,7 @@ This weight and `obj.data.txt` `obj.names` `yolov4-tiny-custom.cfg` should be pu
 <br>
 ## Setting up Jetson Nano 2GB
 
-You follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time detection will be installed on your Jetson.
+You follow below videos to set up Jetson Nano, almost all of things are needed for Real-Time Detection will be installed on your Jetson.
 <br>
 If not enough, Download stuffs from your Jetson terminal on demand.
 <br>
@@ -116,7 +117,7 @@ Webcam would be activated without extra setting.
 
 `thresh 0.1` means that results with 10% or more confidence will be displayed as being detected.
 <br>
-And `>darknet.log` is log of inference results which is used for LINE notification.
+And `>darknet.log` is a log of inference results which is used for LINE notification.
 <br>
 ## LINE notification with YOLD
 
@@ -151,15 +152,15 @@ Issued token should be described in `ACCESS_TOKEN`.
 If you want to know how to issue token, please refer to [this article](https://qiita.com/iitenkida7/items/576a8226ba6584864d95).
 <br>
 
-Run swatchdog during Real-Time Drone Detection,
+Run `swatchdog` during Real-Time Drone Detection,
 ```
 $ swatchdog --config-file=/path/to/swatch.conf --tail-file=/path/to/darknet.log
 ```
-You can get notification from Jetson via LINE notify API!
+You can get notifications from Jetson via LINE notify API!
 <br>
 ## Conclusion
 
-We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB and send a message to your phone when a drone is detected.
+We tried running YOLOv4 tiny trained by original datasets with Jetson Nano 2GB and send a message to your phone when a drone is detected.
 <br>
 With this configuration, about `5 FPS` comes out.
 <br>
