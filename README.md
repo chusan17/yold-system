@@ -9,7 +9,7 @@ Welcome to YOLD (You Only Look Drone) repo!
 <br>
 YOLD is a drone detector based on `YOLOv4 tiny`.
 <br>
-100+ drone pictures are used for re-traning `YOLOv4 tiny` to create a new object detection network which detects only a drone.
+100+ drone pictures are used for re-training `YOLOv4 tiny` to create a new object detection network which detects only a drone.
 <br>
 
 Furthermore, re-trained `YOLOv4 tiny` will be put on Jetson Nano 2GB to perform Real-Time Drone Detection with Webcam.
@@ -24,12 +24,12 @@ This file shows how to re-train `YOLOv4 tiny` using your original dataset in Col
 YOLO needs unique dataset format, so you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg) before training.
 <br>
 
-**Inference is performed only in Jetson which means no necessary Internet connection during Real-Time detection.**
+**Inference is performed only in Jetson which means no necessary Internet connection during Real-Time Detection.**
 <br>
 ※ Notification to your LINE (SNS) account introduced below needs WiFi for API call.
 <br>
 
-### Hardwares
+### Hardware
 - Jetson Nano 2GB
 - USB-C power supply (5V 3A)
 - Webcam (Logicool C525n)
@@ -61,7 +61,7 @@ Once finished, Download pre-trained weights from YOLOv4 repo.
 ```
 Mount your own Google Drive on Colaboratory to read datasets you made.
 <br>
-Actually lots of files described below are needed for training YOLO.
+Lots of files described below are needed for training YOLO.
 <br>
 >All of files are stored in this repo except your own datasets and train/test.txt, please download them and put them into same directory.
 <br>
@@ -77,7 +77,7 @@ Actually lots of files described below are needed for training YOLO.
 - `yolov4-tiny.conv.29`
 <br>
 
-If you have prepared all of files, let's train YOLOv4 tiny with your datasets.
+If you have prepared all of files, Let's train YOLOv4 tiny with your datasets.
 ```
 !./darknet detector train /path/to/obj.data.txt /path/to/yolov4-tiny-custom.cfg /path/to/yolov4-tiny.conv.29 -dont_show -map
 ```
@@ -96,7 +96,7 @@ If not enough, Download stuffs from your Jetson terminal on demand.
 - [Jetson AI Fundamentals - S3E1 - Hello AI World Setup](https://youtu.be/QXIwdsyK7Rw)
 <br>
 
-All procedures in these video have been done, Open up your terminal, Move to directory where you want to install `YOLOv4 (darknet)`, then Get YOLO from Github repo.
+All procedures in these videos have been done, Open up your terminal, Move to directory where you want to install `YOLOv4 (darknet)`, then Get YOLO from GitHub repo.
 ```
 $ git clone https://github.com/AlexeyAB/darknet
 ```
@@ -158,7 +158,7 @@ You can get notification from Jetson via LINE notify API!
 <br>
 ## Conclusion
 
-We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB and send a message to your phone when a dorne is detected.
+We tried running YOLOv4 tiny trained by original dataset with Jetson Nano 2GB and send a message to your phone when a drone is detected.
 <br>
 With this configuration, about `5 FPS` comes out.
 <br>
