@@ -16,7 +16,7 @@ YOLD is a drone detector based on `YOLOv4 tiny`.
 Furthermore, re-trained `YOLOv4 tiny` will be put on Jetson Nano 2GB to perform Real-Time Drone Detection with Webcam.
 <br>
 
-## Configuration
+## Configuration & Preparation
 
 In this repo, [Colaboratory file](https://github.com/chusan17/yold-system/blob/main/train_YOLOv4_tiny.ipynb) is stored.
 <br>
