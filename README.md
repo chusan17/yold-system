@@ -20,15 +20,15 @@ Furthermore, re-trained `YOLOv4 tiny` will be put on Jetson Nano 2GB to perform 
 
 In this repo, [Colaboratory file](https://github.com/chusan17/yold-system/blob/main/train_YOLOv4_tiny.ipynb) is stored.
 <br>
-This file shows how to re-train `YOLOv4 tiny` using your original dataset in Colaboratory and how to make `train/test.txt`.
+This file shows how to re-train `YOLOv4 tiny` using your original datasets in Colaboratory and how to make `train/test.txt`.
 <br>
 
-YOLO needs unique dataset format, so you need to create dataset for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg) before training.
+YOLO needs unique dataset format, so you need to create datasets for YOLO with [this labeling tool](https://github.com/tzutalin/labelImg) before training.
 <br>
 
 **Inference is performed only in Jetson which means no necessary Internet connection during Real-Time Detection.**
 <br>
-※ Notification to your LINE (SNS) account introduced below needs WiFi for API call.
+※ Notification to your LINE (SNS) account needs WiFi for API call.
 <br>
 
 ### Hardware
@@ -98,7 +98,7 @@ If not enough, Download stuffs from your Jetson terminal on demand.
 - [Jetson AI Fundamentals - S3E1 - Hello AI World Setup](https://youtu.be/QXIwdsyK7Rw)
 <br>
 
-All procedures in these videos have been done, Open up your terminal, Move to directory where you want to install `YOLOv4 (darknet)`, then Get YOLO from GitHub repo.
+All procedures in these videos have been done, Open up your terminal, Move to directory where you want to install `YOLOv4 (darknet)`, then get YOLO from GitHub repo.
 ```
 $ git clone https://github.com/AlexeyAB/darknet
 ```
@@ -125,7 +125,7 @@ Let's install `swatch` on your Jetson, open your terminal,
 ```
 $ sudo apt-get install swatch
 ```
-Make `swatch.conf` by `nano` or `vim`.
+Make `swatch.conf` by `nano` or `vim` , and so on.
 >※ If Jetson doesn't have nano or vim, install them from terminal.<br>
 ※ Access rights should be granted if necessary.
 ```
@@ -165,7 +165,7 @@ We tried running YOLOv4 tiny trained by original datasets with Jetson Nano 2GB a
 With this configuration, about `5 FPS` comes out.
 <br>
 
-Even if you flutter a book next to a flying toy drone, it will not be falsely detected. Even though it is `tiny` with about only 100 pics, it is quite excellent.
+Even if you flutter a book next to a flying toy drone, it will not be falsely detected. Even though it is `tiny` with about only 100 images, it is quite excellent.
 <br>
 
 ![スクリーンショット 2021-03-10 233930](https://user-images.githubusercontent.com/79794586/110646185-02941b80-81fa-11eb-9633-ba24db5e7744.png)
