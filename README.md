@@ -125,7 +125,7 @@ Let's install `swatch` on your Jetson, open your terminal,
 ```
 $ sudo apt-get install swatch
 ```
-Make `swatch.conf` by `nano` or `vim` , and so on.
+Make `swatch.conf` by `vim` or `nano` , and so on.
 >※ If Jetson doesn't have nano or vim, install them from terminal.<br>
 ※ Access rights should be granted if necessary.
 ```
